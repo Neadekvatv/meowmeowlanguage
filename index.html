@@ -112,22 +112,22 @@
             Object.entries(translations).map(([key, value]) => [value.toLowerCase(), key])
         );
 
-        // Перевод текста в "Мяу" без пробелов
+        // Перевод текста в "Мяу"
         function translate() {
             const input = document.getElementById('inputText').value;
             const output = Array.from(input)
                 .map(char => translations[char.toLowerCase()] || char)
-                .join('');  // Убираем пробелы между словами
+                .join(' ');
 
             document.getElementById('outputText').innerText = output;
         }
 
-        // Обратный перевод из "Мяу" с пробелами
+        // Обратный перевод из "Мяу"
         function reverseTranslate() {
             const input = document.getElementById('reverseInputText').value;
             const output = input.split(' ')
                 .map(word => reverseTranslations[word.toLowerCase()] || word)
-                .join(' ');  // Добавляем пробелы между словами
+                .join('');
 
             document.getElementById('reverseOutputText').innerText = output;
         }
